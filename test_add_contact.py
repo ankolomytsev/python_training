@@ -6,6 +6,7 @@ from selenium.common.exceptions import NoAlertPresentException
 import unittest
 from contact import Contact
 
+
 class TestAddContact(unittest.TestCase):
     def setUp(self):
         self.wd = webdriver.Firefox()
@@ -15,7 +16,7 @@ class TestAddContact(unittest.TestCase):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
-        self.create_contact(wd, Contact(firstname="Vasiliy", lastname="Pupkin"))
+        self.create_contact(wd, Contact())
         self.return_to_home_page(wd)
         self.logout(wd)
     def open_home_page(self, wd):
@@ -97,3 +98,5 @@ class TestAddContact(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+

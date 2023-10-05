@@ -1,11 +1,9 @@
 class Contact:
-
-    def __init__(self, firstname="firstname", middlename="middlename", lastname="lastname", nickname="nickname",
-                 photo="C:\\Users\\akolomytsev\\Desktop\\test.jpg", title="title", company="company", address="address",
-                 homephone="homephone", mobile="mobile", workphone="workphone", fax="fax",
-                 email="email", email2="email2", email3="email3", homepage="homepage", bday="1", bmonth="January",
-                 byear="2024", aday="1", amonth="January", ayear="2024", address2="address2",
-                 homephone2="homephone2", notes="notes"):
+    def __init__(self, firstname="", middlename="", lastname="", nickname="",
+                 photo="C:\\Users\\akolomytsev\\Projects\\python_training\\test.jpg", title="", company="", address="",
+                 homephone="", mobile="", workphone="", fax="", email="", email2="", email3="", homepage="", bday="1",
+                 bmonth="January", byear="2000", aday="1", amonth="January", ayear="2000", address2="", homephone2="",
+                 notes=""):
         self.firstname = firstname
         self.middlename = middlename
         self.lastname = lastname
