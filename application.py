@@ -105,5 +105,5 @@ class Application:
         wd = self.wd
         wd.find_element("link text", "Logout").click()
 
-    def destoy(self):
+    def destroy(self):
         self.wd.quit()
