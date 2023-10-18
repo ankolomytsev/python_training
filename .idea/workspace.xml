@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5c01a14-444f-4034-9859-e53eb385e816" name="Changes" comment="add contact test with class">
-      <change afterPath="$PROJECT_DIR$/test.jpg" afterDir="false" />
+    <list default="true" id="f5c01a14-444f-4034-9859-e53eb385e816" name="Changes" comment="fx">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contact.py" beforeDir="false" afterPath="$PROJECT_DIR$/contact.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_add_contact.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_add_contact.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/group.py" beforeDir="false" afterPath="$PROJECT_DIR$/group.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +35,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/akolomytsev/Projects/python_training",
+    "last_opened_file_path": "C:/Users/akolomytsev/Projects/o2-autotest",
     "settings.editor.selected.configurable": "configurable.group.project"
   }
 }]]></component>
@@ -45,7 +44,7 @@
       <recent name="C:\Users\akolomytsev\Projects\python_training" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in test_add_contact.py">
+  <component name="RunManager" selected="Python tests.Python tests in test_add_group.py">
     <configuration name="contact" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python_training" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -120,10 +119,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests in test_add_group.py" />
         <item itemvalue="Python tests.pytest in test_add_contact.py" />
         <item itemvalue="Python.contact" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python tests.Python tests in test_add_group.py" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +170,42 @@
       <option name="project" value="LOCAL" />
       <updated>1696369200004</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix">
+      <created>1696500769313</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696500769313</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix">
+      <created>1696520025194</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1696520025194</updated>
+    </task>
+    <task id="LOCAL-00008" summary="rewrite group test to pytest">
+      <created>1696605756847</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696605756847</updated>
+    </task>
+    <task id="LOCAL-00009" summary="rewrite contact test to pytest">
+      <created>1696606178709</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1696606178709</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fx">
+      <created>1696606584798</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1696606584798</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,7 +237,11 @@
     <MESSAGE value="fix first test" />
     <MESSAGE value="add class to store group properties" />
     <MESSAGE value="add contact test with class" />
-    <option name="LAST_COMMIT_MESSAGE" value="add contact test with class" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="rewrite group test to pytest" />
+    <MESSAGE value="rewrite contact test to pytest" />
+    <MESSAGE value="fx" />
+    <option name="LAST_COMMIT_MESSAGE" value="fx" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
