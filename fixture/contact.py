@@ -66,6 +66,7 @@ class ContactHelper:
         wd = self.app.wd
         if value is not None:
             Select(wd.find_element("name", field_name)).select_by_visible_text(value)
+
     def return_to_home_page(self):
         wd = self.app.wd
         wd.find_element("link text", "home").click()
