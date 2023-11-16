@@ -28,7 +28,6 @@ class ContactHelper:
         self.return_to_home_page()
 
     def fill_contact_form(self, contact):
-        wd = self.app.wd
         self.change_text_field_value("firstname", contact.firstname)
         self.change_text_field_value("middlename", contact.middlename)
         self.change_text_field_value("lastname", contact.lastname)
@@ -71,3 +70,7 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element("link text", "home").click()
 
+    def count(self):
+        wd = self.app.wd
+        self.app.open_home_page()
+        return len(wd.find_elements("name", "selected[]"))
