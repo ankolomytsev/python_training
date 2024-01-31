@@ -1,5 +1,7 @@
 from selenium.webdriver.support.select import Select
 from model.contact import Contact
+from selenium.webdriver.common.by import By
+
 
 class ContactHelper:
 
@@ -26,12 +28,30 @@ class ContactHelper:
         self.return_to_home_page()
         self.contact_cache = None
 
+    def delete_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element("css selector", "input[value='%s']" % id).click()
+        wd.find_element("xpath", "//input[@value='Delete']").click()
+        alert = wd.switch_to.alert
+        alert.accept()
+        self.return_to_home_page()
+        self.contact_cache = None
+
     def edit_first_contact(self, new_contact_data):
         self.edit_contact_by_index(0, new_contact_data)
 
     def edit_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
         wd.find_elements("xpath", "//img[@alt='Edit']")[index].click()
+        self.fill_contact_form(new_contact_data)
+        wd.find_element("name", "update").click()
+        self.return_to_home_page()
+        self.contact_cache = None
+
+    def edit_contact_by_id(self, id, new_contact_data):
+        wd = self.app.wd
+        xpath = f'edit.php?"id={id}"]'
+        wd.find_element(By.XPATH, "//*[@id='%s']/../..//*[@title='Edit']" % id).click()
         self.fill_contact_form(new_contact_data)
         wd.find_element("name", "update").click()
         self.return_to_home_page()
@@ -46,7 +66,7 @@ class ContactHelper:
         self.change_text_field_value("title", contact.title)
         self.change_text_field_value("company", contact.company)
         self.change_text_field_value("address", contact.address)
-        self.change_text_field_value("homephone", contact.homephone)
+        self.change_text_field_value("home", contact.home)
         self.change_text_field_value("mobile", contact.mobile)
         self.change_text_field_value("workphone", contact.workphone)
         self.change_text_field_value("fax", contact.fax)
@@ -61,7 +81,7 @@ class ContactHelper:
         self.change_dropdown_field_value("amonth", contact.amonth)
         self.change_text_field_value("ayear", contact.ayear)
         self.change_text_field_value("address2", contact.address2)
-        self.change_text_field_value("homephone2", contact.homephone2)
+        self.change_text_field_value("phone2", contact.phone2)
         self.change_text_field_value("notes", contact.notes)
 
     def change_text_field_value(self, field_name, text):
@@ -116,13 +136,13 @@ class ContactHelper:
         lastname = wd.find_element("name", "lastname").get_attribute("value")
         id = wd.find_element("name", "id").get_attribute("value")
         address = wd.find_element("name", "address").get_attribute("value")
-        homephone = wd.find_element("name", "home").get_attribute("value")
+        home = wd.find_element("name", "home").get_attribute("value")
         mobile = wd.find_element("name", "mobile").get_attribute("value")
         workphone = wd.find_element("name", "work").get_attribute("value")
-        homephone2 = wd.find_element("name", "phone2").get_attribute("value")
+        phone2 = wd.find_element("name", "phone2").get_attribute("value")
         email = wd.find_element("name", "email").get_attribute("value")
         email2 = wd.find_element("name", "email2").get_attribute("value")
         email3 = wd.find_element("name", "email3").get_attribute("value")
-        return Contact(firstname=firstname, lastname=lastname, id=id, address=address, homephone=homephone,
-                       mobile=mobile, workphone=workphone, homephone2=homephone2, email=email, email2=email2,
+        return Contact(firstname=firstname, lastname=lastname, id=id, address=address, home=home,
+                       mobile=mobile, workphone=workphone, phone2=phone2, email=email, email2=email2,
                        email3=email3)
