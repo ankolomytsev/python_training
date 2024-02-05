@@ -3,7 +3,7 @@ from sys import maxsize
 
 class Contact:
     def __init__(self, firstname=None, middlename=None, lastname=None, nickname=None, photo=None, title=None,
-                 company=None, address=None, home=None, mobile=None, workphone=None, fax=None, email=None,
+                 company=None, address=None, home=None, mobile=None, work=None, fax=None, email=None,
                  email2=None, email3=None, homepage=None, bday=None, bmonth=None, byear=None, aday=None, amonth=None,
                  ayear=None, address2=None, phone2=None, notes=None, id=None, all_phones_from_home_page=None,
                  all_emails_from_home_page=None):
@@ -17,7 +17,7 @@ class Contact:
         self.address = address
         self.home = home
         self.mobile = mobile
-        self.workphone = workphone
+        self.work = work
         self.fax = fax
         self.email = email
         self.email2 = email2
@@ -51,7 +51,7 @@ class Contact:
             (self.address is None or other.address is None or self.address == other.address) and \
             (self.home is None or other.home is None or self.home == other.home) and \
             (self.mobile is None or other.mobile is None or self.mobile == other.mobile) and \
-            (self.workphone is None or other.workphone is None or self.workphone == other.workphone) and \
+            (self.work is None or other.work is None or self.work == other.work) and \
             (self.fax is None or other.fax is None or self.fax == other.fax) and \
             (self.email is None or other.email is None or self.email == other.email) and \
             (self.email2 is None or other.email2 is None or self.email2 == other.email2) and \

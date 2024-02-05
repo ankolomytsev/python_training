@@ -50,7 +50,6 @@ class ContactHelper:
 
     def edit_contact_by_id(self, id, new_contact_data):
         wd = self.app.wd
-        xpath = f'edit.php?"id={id}"]'
         wd.find_element(By.XPATH, "//*[@id='%s']/../..//*[@title='Edit']" % id).click()
         self.fill_contact_form(new_contact_data)
         wd.find_element("name", "update").click()
