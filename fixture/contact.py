@@ -1,6 +1,7 @@
 from selenium.webdriver.support.select import Select
 from model.contact import Contact
 from selenium.webdriver.common.by import By
+import random
 
 
 class ContactHelper:
@@ -36,6 +37,10 @@ class ContactHelper:
         alert.accept()
         self.return_to_home_page()
         self.contact_cache = None
+
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element("css selector", "input[value='%s']" % id).click()
 
     def edit_first_contact(self, new_contact_data):
         self.edit_contact_by_index(0, new_contact_data)
@@ -145,3 +150,10 @@ class ContactHelper:
         return Contact(firstname=firstname, lastname=lastname, id=id, address=address, home=home,
                        mobile=mobile, workphone=workphone, phone2=phone2, email=email, email2=email2,
                        email3=email3)
+
+    def add_contact_to_group(self, contact_id, group_name):
+        self.select_contact_by_id(contact_id)
+        wd = self.app.wd
+        select_box = wd.find_element('name', 'to_group')
+        Select(select_box).select_by_visible_text(group_name)
+        wd.find_element('name', 'add').click()
