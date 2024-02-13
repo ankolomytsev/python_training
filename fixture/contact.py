@@ -31,7 +31,7 @@ class ContactHelper:
 
     def delete_contact_by_id(self, id):
         wd = self.app.wd
-        wd.find_element("css selector", "input[value='%s']" % id).click()
+        self.select_contact_by_id(id)
         wd.find_element("xpath", "//input[@value='Delete']").click()
         alert = wd.switch_to.alert
         alert.accept()
@@ -72,7 +72,7 @@ class ContactHelper:
         self.change_text_field_value("address", contact.address)
         self.change_text_field_value("home", contact.home)
         self.change_text_field_value("mobile", contact.mobile)
-        self.change_text_field_value("workphone", contact.workphone)
+        self.change_text_field_value("work", contact.work)
         self.change_text_field_value("fax", contact.fax)
         self.change_text_field_value("email", contact.email)
         self.change_text_field_value("email2", contact.email2)
@@ -142,18 +142,29 @@ class ContactHelper:
         address = wd.find_element("name", "address").get_attribute("value")
         home = wd.find_element("name", "home").get_attribute("value")
         mobile = wd.find_element("name", "mobile").get_attribute("value")
-        workphone = wd.find_element("name", "work").get_attribute("value")
+        work = wd.find_element("name", "work").get_attribute("value")
         phone2 = wd.find_element("name", "phone2").get_attribute("value")
         email = wd.find_element("name", "email").get_attribute("value")
         email2 = wd.find_element("name", "email2").get_attribute("value")
         email3 = wd.find_element("name", "email3").get_attribute("value")
         return Contact(firstname=firstname, lastname=lastname, id=id, address=address, home=home,
-                       mobile=mobile, workphone=workphone, phone2=phone2, email=email, email2=email2,
+                       mobile=mobile, work=work, phone2=phone2, email=email, email2=email2,
                        email3=email3)
 
-    def add_contact_to_group(self, contact_id, group_name):
-        self.select_contact_by_id(contact_id)
+    def add_contact_to_group(self, contact, group):
         wd = self.app.wd
+        self.app.open_home_page()
+        self.select_contact_by_id(contact.id)
         select_box = wd.find_element('name', 'to_group')
-        Select(select_box).select_by_visible_text(group_name)
+        Select(select_box).select_by_visible_text(group.name)
         wd.find_element('name', 'add').click()
+        self.contact_cache = None
+
+    def remove_contact_from_group(self, contact, group):
+        wd = self.app.wd
+        self.app.open_home_page()
+        select_box = wd.find_element('name', 'group')
+        Select(select_box).select_by_visible_text(group.name)
+        self.select_contact_by_id(contact.id)
+        wd.find_element('name', 'remove').click()
+        self.contact_cache = None

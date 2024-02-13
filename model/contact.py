@@ -32,7 +32,7 @@ class Contact:
         self.address2 = address2
         self.phone2 = phone2
         self.notes = notes
-        self.id = id
+        self.id = str(id)
         self.all_phones_from_home_page = all_phones_from_home_page
         self.all_emails_from_home_page = all_emails_from_home_page
 
@@ -65,10 +65,12 @@ class Contact:
             (self.ayear is None or other.ayear is None or self.ayear == other.ayear) and \
             (self.address2 is None or other.address2 is None or self.address2 == other.address2) and \
             (self.phone2 is None or other.phone2 is None or self.email2 == other.phone2) and \
-            (self.notes is None or other.notes is None or self.email2 == other.notes)
+            (self.notes is None or other.notes is None or self.email2 == other.notes) and \
+            (self.all_phones_from_home_page is None or other.all_phones_from_home_page is None or self.all_phones_from_home_page == other.all_phones_from_home_page) and \
+            (self.all_emails_from_home_page is None or other.all_emails_from_home_page is None or self.all_emails_from_home_page == other.all_emails_from_home_page)
 
     def id_or_max(self):
-            if self.id:
-                return int(self.id)
-            else:
-                return maxsize
+        if self.id:
+            return int(self.id)
+        else:
+            return maxsize
