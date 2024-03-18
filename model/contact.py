@@ -32,7 +32,7 @@ class Contact:
         self.address2 = address2
         self.phone2 = phone2
         self.notes = notes
-        self.id = str(id)
+        self.id = id
         self.all_phones_from_home_page = all_phones_from_home_page
         self.all_emails_from_home_page = all_emails_from_home_page
 
